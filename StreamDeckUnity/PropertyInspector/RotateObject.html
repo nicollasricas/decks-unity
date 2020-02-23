@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>com.nicollasr.streamdeckunity.rotateobject PI</title>
+    <link rel="stylesheet" href="css/sdpi.css" />
+    <script src="js/pi.js"></script>
+  </head>
+  <body>
+    <div class="sdpi-wrapper">
+      <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-item-value" onclick="openGettingStarted()">Getting Started</button>
+      </div>
+
+      <div class="sdpi-item">
+        <div class="sdpi-item-label">Axis</div>
+        <select id="axis" class="sdpi-item-value select" required>
+          <option value="X">X</option>
+          <option value="Y" selected="selected">Y</option>
+          <option value="Z">Z</option>
+        </select>
+      </div>
+
+      <div class="sdpi-item">
+        <div class="sdpi-item-label">Angle</div>
+        <input class="sdpi-item-value" type="text" id="angle" placeholder="180" />
+      </div>
+
+      <div class="sdpi-item alignTop">
+        <div class="sdpi-item-label empty"></div>
+        <details open class="noInnerMargins">
+          <summary>Notes</summary>
+          <p>
+            If the axis is not set it will rotate the object(s) by "Y" axis.
+          </p>
+          <p>
+            If the angle is not set it will rotate the object(s) by a 90 degree.
+          </p>
+        </details>
+      </div>
+    </div>
+
+    <div class="sdpi-info-label hidden" style="top: -1000;" value=""></div>
+  </body>
+</html>

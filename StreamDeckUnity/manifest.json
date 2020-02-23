@@ -1,0 +1,101 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/Unity",
+      "Name": "Execute Menu",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Executes a Unity menu with the given path.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/ExecuteMenu.html",
+      "UUID": "com.nicollasr.streamdeckunity.executemenu"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Reset Object(s)",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Reset the objects position and rotation.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/ResetObject.html",
+      "UUID": "com.nicollasr.streamdeckunity.resetobject"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Rotate Object(s)",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Rotate the objects based on-axis and degree.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/RotateObject.html",
+      "UUID": "com.nicollasr.streamdeckunity.rotateobject"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Paste Component",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Paste copied component to selected objects.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/PasteComponent.html",
+      "UUID": "com.nicollasr.streamdeckunity.pastecomponent"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Pause",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Pause/resume play mode.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
+      "UUID": "com.nicollasr.streamdeckunity.pausemode"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Toggle Scene/Game View",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Switch between scene and game view",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
+      "UUID": "com.nicollasr.streamdeckunity.togglescenegame"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Nicollas R.",
+  "CodePath": "com.nicollasr.streamdeckunity",
+  "Description": "Enables Stream Deck integration with Unity.",
+  "Name": "Unity",
+  "Icon": "Images/Unity",
+  "Category": "Unity",
+  "CategoryIcon": "Images/Unity",
+  "URL": "https://github.com/nicollasricas/streamdeck-unity",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
+}

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamDeckUnity", "StreamDeckUnity\StreamDeckUnity.csproj", "{E2790273-FB24-4004-B9E8-845486B26F3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85915C8C-0279-479B-AC21-7798998FCFFB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE = LICENSE
+		postbuild.ps1 = postbuild.ps1
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D0A6843-7E2F-4ED8-BAAA-683B036CF0E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D1FC43F5-E5A5-4618-8B45-DB182960FDA8}"
+	ProjectSection(SolutionItems) = preProject
+		tools\DistributionTool.exe = tools\DistributionTool.exe
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2790273-FB24-4004-B9E8-845486B26F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2790273-FB24-4004-B9E8-845486B26F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2790273-FB24-4004-B9E8-845486B26F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2790273-FB24-4004-B9E8-845486B26F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2790273-FB24-4004-B9E8-845486B26F3B} = {8D0A6843-7E2F-4ED8-BAAA-683B036CF0E4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AECB56A1-9BB8-4B08-8EB8-52F4D884F256}
+	EndGlobalSection
+EndGlobal
