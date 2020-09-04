@@ -331,6 +331,11 @@ ol.sdpi-item-value {
   text-align: center;
 }
 
+.sdpi-info-button {
+  width: 100%;
+  text-transform: uppercase;
+}
+
 table > caption {
   margin: 2px;
 }

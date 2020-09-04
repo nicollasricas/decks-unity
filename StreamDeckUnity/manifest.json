@@ -9,7 +9,7 @@
         }
       ],
       "Tooltip": "Executes a Unity menu with the given path.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteMenu.html",
       "UUID": "com.nicollasr.streamdeckunity.executemenu"
     },
@@ -22,7 +22,7 @@
         }
       ],
       "Tooltip": "Reset the objects position and rotation.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ResetObject.html",
       "UUID": "com.nicollasr.streamdeckunity.resetobject"
     },
@@ -35,7 +35,7 @@
         }
       ],
       "Tooltip": "Rotate the objects based on-axis and degree.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/RotateObject.html",
       "UUID": "com.nicollasr.streamdeckunity.rotateobject"
     },
@@ -48,7 +48,7 @@
         }
       ],
       "Tooltip": "Paste copied component to selected objects.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/PasteComponent.html",
       "UUID": "com.nicollasr.streamdeckunity.pastecomponent"
     },
@@ -61,7 +61,7 @@
         }
       ],
       "Tooltip": "Pause/resume play mode.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
       "UUID": "com.nicollasr.streamdeckunity.pausemode"
     },
@@ -74,7 +74,7 @@
         }
       ],
       "Tooltip": "Switch between scene and game view",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
       "UUID": "com.nicollasr.streamdeckunity.togglescenegame"
     }
@@ -88,7 +88,7 @@
   "Category": "Unity",
   "CategoryIcon": "Images/Unity",
   "URL": "https://github.com/nicollasricas/streamdeck-unity",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "OS": [
     {
       "Platform": "windows",
