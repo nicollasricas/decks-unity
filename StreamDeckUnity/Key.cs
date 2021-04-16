@@ -1,6 +1,6 @@
-﻿using BarRaider.SdTools;
+﻿using System;
+using BarRaider.SdTools;
 using Newtonsoft.Json.Linq;
-using System;
 
 namespace StreamDeckUnity
 {

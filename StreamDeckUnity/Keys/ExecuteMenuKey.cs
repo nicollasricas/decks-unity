@@ -1,4 +1,5 @@
 ﻿using BarRaider.SdTools;
+using Newtonsoft.Json;
 
 namespace StreamDeckUnity.Keys
 {
@@ -20,5 +21,18 @@ namespace StreamDeckUnity.Keys
                 MessageServer.Send(pid.ToString(), new ExecuteMenuMessage(settings.Path));
             }
         }
+    }
+
+    public class ExecuteMenuMessage : Message
+    {
+        public string Path { get; }
+
+        public ExecuteMenuMessage(string path) => Path = path;
+    }
+
+    public class ExecuteMenuSettings : KeySettings
+    {
+        [JsonProperty("path")]
+        public string Path { get; set; }
     }
 }

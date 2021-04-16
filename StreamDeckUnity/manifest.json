@@ -8,7 +8,7 @@
           "Image": "Images/Unity"
         }
       ],
-      "Tooltip": "Executes a Unity menu with the given path.",
+      "Tooltip": "Executes a Unity menu with the given path",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteMenu.html",
       "UUID": "com.nicollasr.streamdeckunity.executemenu"
@@ -21,9 +21,9 @@
           "Image": "Images/Unity"
         }
       ],
-      "Tooltip": "Reset the objects position and rotation.",
+      "Tooltip": "Reset the objects position and rotation",
       "SupportedInMultiActions": true,
-      "PropertyInspectorPath": "PropertyInspector/ResetObject.html",
+      "PropertyInspectorPath": "PropertyInspector/EmptyPI.html",
       "UUID": "com.nicollasr.streamdeckunity.resetobject"
     },
     {
@@ -34,7 +34,7 @@
           "Image": "Images/Unity"
         }
       ],
-      "Tooltip": "Rotate the objects based on-axis and degree.",
+      "Tooltip": "Rotate the objects based on-axis and degree",
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/RotateObject.html",
       "UUID": "com.nicollasr.streamdeckunity.rotateobject"
@@ -47,9 +47,9 @@
           "Image": "Images/Unity"
         }
       ],
-      "Tooltip": "Paste copied component to selected objects.",
+      "Tooltip": "Paste copied component to selected objects",
       "SupportedInMultiActions": true,
-      "PropertyInspectorPath": "PropertyInspector/PasteComponent.html",
+      "PropertyInspectorPath": "PropertyInspector/EmptyPI.html",
       "UUID": "com.nicollasr.streamdeckunity.pastecomponent"
     },
     {
@@ -60,10 +60,10 @@
           "Image": "Images/Unity"
         }
       ],
-      "Tooltip": "Pause/resume play mode.",
+      "Tooltip": "Pause/resume play mode",
       "SupportedInMultiActions": true,
-      "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
-      "UUID": "com.nicollasr.streamdeckunity.pausemode"
+      "PropertyInspectorPath": "PropertyInspector/EmptyPI.html",
+      "UUID": "com.nicollasr.streamdeckunity.togglepause"
     },
     {
       "Icon": "Images/Unity",
@@ -75,8 +75,47 @@
       ],
       "Tooltip": "Switch between scene and game view",
       "SupportedInMultiActions": true,
-      "PropertyInspectorPath": "PropertyInspector/PauseMode.html",
+      "PropertyInspectorPath": "PropertyInspector/EmptyPI.html",
       "UUID": "com.nicollasr.streamdeckunity.togglescenegame"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Select Object",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Select game object by name or tag",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/SelectObject.html",
+      "UUID": "com.nicollasr.streamdeckunity.selectobject"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Toggle Object State",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Toggles game objects state",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/ToggleObjectState.html",
+      "UUID": "com.nicollasr.streamdeckunity.toggleobjectstate"
+    },
+    {
+      "Icon": "Images/Unity",
+      "Name": "Add Component",
+      "States": [
+        {
+          "Image": "Images/Unity"
+        }
+      ],
+      "Tooltip": "Add a component to the selected game objects",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/AddComponent.html",
+      "UUID": "com.nicollasr.streamdeckunity.addcomponent"
     }
   ],
   "SDKVersion": 2,
@@ -88,7 +127,7 @@
   "Category": "Unity",
   "CategoryIcon": "Images/Unity",
   "URL": "https://github.com/nicollasricas/streamdeck-unity",
-  "Version": "1.0.1",
+  "Version": "1.0.0",
   "OS": [
     {
       "Platform": "windows",

@@ -1,4 +1,8 @@
-﻿using BarRaider.SdTools;
+﻿using System;
+using System.IO;
+using BarRaider.SdTools;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace StreamDeckUnity
 {
@@ -8,20 +12,52 @@ namespace StreamDeckUnity
 
         private static void Main(string[] args)
         {
-            StartMessageServer();
+            try
+            {
+                var configuration = LoadConfiguration();
 
-#if DEBUG
-            System.Console.ReadLine();
-#else
-            ConnectPlugin(args);
-#endif
+                StartMessageServer(configuration.Host, configuration.Port);
 
-            StopMessageServer();
+                ConnectPlugin(args);
+
+                StopMessageServer();
+            }
+            catch (Exception exception)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, exception.Message);
+            }
         }
 
-        private static void StartMessageServer()
+        private static Configuration LoadConfiguration()
         {
-            messageServer = new MessageServer();
+            var configuration = new Configuration();
+            var configurationFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "StreamDeckUnity");
+            var configurationFilePath = Path.Combine(configurationFolderPath, "settings.json");
+
+            if (!File.Exists(configurationFilePath))
+            {
+                Logger.Instance.LogMessage(TracingLevel.INFO, $"Creating configuration file at {configurationFolderPath}");
+
+                Directory.CreateDirectory(configurationFolderPath);
+
+                File.WriteAllText(configurationFilePath, JsonConvert.SerializeObject(configuration, Formatting.Indented, new JsonSerializerSettings()
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
+
+                return configuration;
+            }
+
+            Logger.Instance.LogMessage(TracingLevel.INFO, $"Loading configuration from {configurationFilePath}");
+
+            JsonConvert.PopulateObject(File.ReadAllText(configurationFilePath), configuration);
+
+            return configuration;
+        }
+
+        private static void StartMessageServer(string host, int port)
+        {
+            messageServer = new MessageServer(host, port);
             messageServer.Start();
         }
 

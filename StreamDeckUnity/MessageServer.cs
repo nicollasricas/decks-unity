@@ -1,15 +1,10 @@
-﻿using BarRaider.SdTools;
+﻿using System.Collections.Concurrent;
+using BarRaider.SdTools;
 using Fleck;
 using Newtonsoft.Json;
-using System.Collections.Concurrent;
 
 namespace StreamDeckUnity
 {
-    public abstract class Message
-    {
-        public string Id { get; set; }
-    }
-
     public class MessageServer
     {
         private readonly WebSocketServer server;
@@ -18,7 +13,7 @@ namespace StreamDeckUnity
 
         private readonly string UnityPID = "X-Unity-PID";
 
-        public MessageServer() => server = new WebSocketServer($"ws://127.0.0.1:18084");
+        public MessageServer(string host, int port) => server = new WebSocketServer($"ws://{host}:{port}");
 
         public void Start()
         {
@@ -28,7 +23,6 @@ namespace StreamDeckUnity
             {
                 connection.OnOpen = () => OnConnected(connection);
                 connection.OnClose = () => OnDisconnected(connection);
-                //connection.OnMessage = message => HandleMessages(connection, message);
             });
         }
 
@@ -42,15 +36,7 @@ namespace StreamDeckUnity
             }
         }
 
-        private void OnDisconnected(IWebSocketConnection connection)
-        {
-            connections.TryRemove(connection.ConnectionInfo.Cookies[UnityPID], out var _);
-        }
-
-        //private void HandleMessages(IWebSocketConnection connection, string rawMessage)
-        //{
-        //    Logger.Instance.LogMessage(TracingLevel.WARN, "Received messages::::::" + rawMessage);
-        //}
+        private void OnDisconnected(IWebSocketConnection connection) => connections.TryRemove(connection.ConnectionInfo.Cookies[UnityPID], out var _);
 
         public void Dispose() => server?.Dispose();
 

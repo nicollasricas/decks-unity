@@ -1,0 +1,89 @@
+name: CI
+
+env:
+  RELEASE_MAIL_SUBJECT: Unity 3D - Plugin Update
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  buildAndRelease:
+    runs-on: windows-latest
+    outputs:
+      changelog: "${{ steps.commitsChangeLog.outputs.changelog }}"
+    steps:
+      - uses: microsoft/setup-msbuild@v1
+
+      - uses: NuGet/setup-nuget@v1.0.5
+
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - run: dotnet publish -c Release -r win10-x64 --self-contained true
+
+      - run: dotnet publish -c Release -r osx-x64 --self-contained true
+
+      - uses: loopwerk/conventional-changelog-action@latest
+        id: commitsChangeLog
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          config_file: .github/workflows/tag-changelog-config.js
+
+      - uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.commitsChangeLog.outputs.changes }}
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
+          files: |
+            com.nicollasr.streamdeckunity.streamDeckPlugin
+            com.nicollasr.streamdeckunity.mac.streamDeckPlugin
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - uses: lifepal/markdown-to-html@v1.2
+        id: releaseMailBody
+        with:
+          text: |
+            Hi,
+
+            New plugin update.
+
+            Downloads are available [here](https://github.com/nicollasricas/streamdeck-unity/releases/latest) for both platforms (Windows and Mac).
+
+            Regards,
+
+            Nicollas R.
+
+      - uses: mmichailidis/sendgrid-mail-action@v1.1
+        with:
+          sendgrid-token: ${{ secrets.SENDGRID_TOKEN }}
+          mail: ${{ secrets.STREAMDECK_SUPPORT_EMAIL }},${{ secrets.MY_EMAIL }}
+          from: ${{ secrets.RELEASE_MAIL_FROM }}
+          subject: ${{ env.RELEASE_MAIL_SUBJECT }}
+          text: "${{ steps.releaseMailBody.outputs.html }}"
+          individual: true
+  pullRequestChangelog:
+    runs-on: windows-latest
+    needs: buildAndRelease
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          (Get-Content CHANGELOG.md) -replace "\[Unreleased\]", "$&`n`n${{ needs.buildAndRelease.outputs.changelog }}" | Set-Content CHANGELOG.md
+
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          base: master
+          commit-message: Release ${{ github.ref }} CHANGELOG
+          title: Update CHANGELOG
+          branch: changelog
+          delete-branch: true
+          draft: false
